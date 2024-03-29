@@ -13,18 +13,38 @@ describe('Password Palidation', () => {
 
     it.todo('Should validate a password contains minimum 8 characters', () => {
 
-        const invalidPassword = '1234567';
+        const invalidPassword = 'MyPs123';
 
         expect(valudatePassword(invalidPassword)).toBe(false);
     })
 
 
-    it.todo('Should validate a password contains mixed cases')
+    it.todo('Should validate a password contains mixed cases', () => {
+
+        const invalidPassword = 'mypassword123';
+        const invalidPassword2 = 'MYPASSWORD123';
+
+        expect(valudatePassword(invalidPassword)).toBe(false);
+        expect(valudatePassword(invalidPassword2)).toBe(false);
+
+    });
 
 
-    it.todo('Should validate a password contains digits and characters')
+    it.todo('Should validate a password contains digits and characters', () => {
+
+        const invalidPassword = 'mypassword';
+
+        expect(valudatePassword(invalidPassword)).toBe(false);
+
+    });
 
 
-    it.todo('Should validate a password contains special characters')
+    it.todo('Should validate a password contains special characters', () => {
+
+        const invalidPassword = 'mypassword';
+
+        expect(valudatePassword(invalidPassword)).toBe(false);
+
+    })
 
 });
