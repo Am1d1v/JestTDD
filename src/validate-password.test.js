@@ -3,7 +3,7 @@ import { valudatePassword } from "./validate-password";
 describe('Password Palidation', () => {
 
     // Valid Password
-    it('Should return true for a valid password', () => {
+    it.only('Should return true for a valid password', () => {
 
         const validPassword = 'MyPassword123!'
 
@@ -11,7 +11,7 @@ describe('Password Palidation', () => {
     });
 
 
-    it.todo('Should validate a password contains minimum 8 characters', () => {
+    it.only('Should validate a password contains minimum 8 characters', () => {
 
         const invalidPassword = 'MyPs123';
 
@@ -19,7 +19,7 @@ describe('Password Palidation', () => {
     })
 
 
-    it.todo('Should validate a password contains mixed cases', () => {
+    it('Should validate a password contains mixed cases', () => {
 
         const invalidPassword = 'mypassword123';
         const invalidPassword2 = 'MYPASSWORD123';
@@ -30,16 +30,16 @@ describe('Password Palidation', () => {
     });
 
 
-    it.todo('Should validate a password contains digits and characters', () => {
+    it('Should validate a password contains digits and characters', () => {
 
-        const invalidPassword = 'mypassword';
+        const invalidPassword = 'mypassword!@#';
 
         expect(valudatePassword(invalidPassword)).toBe(false);
 
     });
 
 
-    it.todo('Should validate a password contains special characters', () => {
+    it('Should validate a password contains special characters', () => {
 
         const invalidPassword = 'mypassword';
 
