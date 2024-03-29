@@ -3,11 +3,11 @@ import { valudatePassword } from "./validate-password";
 describe('Password Palidation', () => {
 
     // Valid Password
-    it('Should return true for a valid password', () => {
+    it.only('Should return {success: true, error: null} for a valid password', () => {
 
         const validPassword = 'MyPassword123!'
 
-        expect(valudatePassword(validPassword)).toBe(true);
+        expect(valudatePassword(validPassword)).toEqual({success: true, error: null});
     });
 
 

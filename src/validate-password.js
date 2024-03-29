@@ -15,5 +15,8 @@ export function valudatePassword(password){
     // If password doesnt contain specials return false
     if(!/[^A-Za-z0-9]/.test(password)) return false
 
-    return true
+    return {
+        success: true,
+        error: null
+    }
 }
