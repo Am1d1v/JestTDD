@@ -1,9 +1,11 @@
 import { valudatePassword } from "./validate-password";
+import { passwordValidationErrors } from "./constants";
+
 
 describe('Password Palidation', () => {
 
     // Valid Password
-    it.only('Should return {success: true, error: null} for a valid password', () => {
+    it('Should return {success: true, error: null} for a valid password', () => {
 
         const validPassword = 'MyPassword123!'
 
@@ -11,39 +13,61 @@ describe('Password Palidation', () => {
     });
 
 
-    it('Should validate a password contains minimum 8 characters', () => {
+    it('Should validate a password contains minimum 8 characters and return error message', () => {
 
         const invalidPassword = 'MyPs123';
 
-        expect(valudatePassword(invalidPassword)).toBe(false);
+        const expectedError = {
+            success: false,
+            error: passwordValidationErrors.length
+        }
+
+        expect(valudatePassword(invalidPassword)).toEqual(expectedError);
     })
 
 
-    it('Should validate a password contains mixed cases', () => {
+    it('Should validate a password contains mixed cases and return error message', () => {
 
         const invalidPassword = 'mypassword123';
         const invalidPassword2 = 'MYPASSWORD123';
 
-        expect(valudatePassword(invalidPassword)).toBe(false);
-        expect(valudatePassword(invalidPassword2)).toBe(false);
+        const expectedError = {
+            success: false,
+            error: passwordValidationErrors.case
+        }
+
+        expect(valudatePassword(invalidPassword)).toEqual(expectedError);
+        expect(valudatePassword(invalidPassword2)).toEqual(expectedError);
 
     });
 
 
-    it('Should validate a password contains digits and characters', () => {
+    it('Should validate a password contains digits and characters and return error message', () => {
 
-        const invalidPassword = 'mypassword!@#';
+        const invalidPassword = 'myPassword!@#';
 
-        expect(valudatePassword(invalidPassword)).toBe(false);
+        const expectedError = {
+            success: false,
+            error: passwordValidationErrors.number
+        }
+
+
+        expect(valudatePassword(invalidPassword)).toEqual(expectedError);
 
     });
 
 
-    it('Should validate a password contains special characters', () => {
+    it('Should validate a password contains special characters and return error message', () => {
 
-        const invalidPassword = 'mypassword';
+        const invalidPassword = 'mYpassword123';
 
-        expect(valudatePassword(invalidPassword)).toBe(false);
+        const expectedError = {
+            success: false,
+            error: passwordValidationErrors.special
+        }
+
+
+        expect(valudatePassword(invalidPassword)).toEqual(expectedError);
 
     })
 
