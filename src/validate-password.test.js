@@ -3,7 +3,7 @@ import { valudatePassword } from "./validate-password";
 describe('Password Palidation', () => {
 
     // Valid Password
-    it.only('Should return true for a valid password', () => {
+    it('Should return true for a valid password', () => {
 
         const validPassword = 'MyPassword123!'
 
@@ -11,7 +11,7 @@ describe('Password Palidation', () => {
     });
 
 
-    it.only('Should validate a password contains minimum 8 characters', () => {
+    it('Should validate a password contains minimum 8 characters', () => {
 
         const invalidPassword = 'MyPs123';
 
